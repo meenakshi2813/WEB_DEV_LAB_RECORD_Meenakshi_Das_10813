@@ -1,37 +1,35 @@
 
+
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Show Hide Example</title>
-   
-
-    <style>
-        .hide {
-            display: none;
-        }
-        .box {
-            padding: 10px;
-            border: 1px solid black;
-            width: 200px;
-            margin-top: 10px;
-        }
-    </style>
+    <title>
+        Event Listener Example 
+    </title>
 </head>
 <body>
 
-<h3>Show / Hide using JavaScript</h3>
+<h3>addEventListener Example</h3>
 
-<button onclick="toggleBox()">Show / Hide</button>
+<button id="btn">Click Me</button>
+<button id="removeBtn">Remove Event</button>
 
-<div id="myBox" class="box">
-    This is a box
-</div>
+<p id="text">Waiting for click...</p>
 
 <script>
-    function toggleBox() {
-        // toggle CSS class
-        document.getElementById("myBox").classList.toggle("hide");
+    // function for click event
+    function showMessage() {
+        document.getElementById("text").innerHTML = "Button Clicked!";
     }
+
+    // addEventListener
+    document.getElementById("btn").addEventListener("click", showMessage);
+
+    // removeEventListener
+    document.getElementById("removeBtn").addEventListener("click", function () {
+        document.getElementById("btn").removeEventListener("click", showMessage);
+        document.getElementById("text").innerHTML = "Event Removed!";
+    });
 </script>
 
 </body>
